@@ -12,7 +12,7 @@ export const PokemonList = ( { pokemons }: Props ) => {
         <div className="row">
           {
             pokemons.map( ( item: Pokemon ) => (
-              <div className="col-6 col-lg-3">
+              <div className="col-6 col-lg-3" key={item.id}>
                 <PokemonItem pokemon={item} />
               </div>
             ))

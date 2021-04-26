@@ -3,12 +3,13 @@ import { usePokemon } from '../hooks/usePokemon';
 import { Loading } from '../components/Loading';
 import { PokemonList } from '../components/PokemonList';
 import { Pokemon } from '../interfaces/fetchAllPokemonsResponse';
+import { pokemonContext } from '../App';
+
 
 export const HomePage = () => {
    const pagination = 5;
    const { pokemons, loading, error }= usePokemon();
-   const [ currentPage, setCurrentPage ] = useState(0);
-   const [ search, setSearch ] = useState("");
+  const { search, currentPage, setCurrentPage, setSearch } = useContext( pokemonContext );
 
   const filteredPokemons = (): Pokemon[] => {
     if ( search.length === 0 ){
